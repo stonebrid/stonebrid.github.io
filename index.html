@@ -1,1 +1,476 @@
-We did not find results for: <!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Stonebridge Group LLC</title> <meta name="description" content="Stonebridge Group LLC provides administrative management and general business consulting services for small businesses in Illinois." /> <style> * { box-sizing: border-box; margin: 0; padding: 0; } body { font-family: Arial, Helvetica, sans-serif; line-height: 1.6; color: #1f2937; background: #f8fafc; } header { background: linear-gradient(135deg, #0f172a, #1e3a8a); color: white; padding: 70px 20px 50px; text-align: center; } .container { width: 90%; max-width: 1100px; margin: auto; } header h1 { font-size: 2.5rem; margin-bottom: 12px; } header p { max-width: 750px; margin: 0 auto 20px; font-size: 1.08rem; opacity: 0.95; } .top-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 20px; } .btn { display: inline-block; text-decoration: none; padding: 12px 22px; border-radius: 10px; font-weight: bold; transition: 0.2s ease; } .btn-primary { background: #d4af37; color: #111827; } .btn-primary:hover { opacity: 0.9; } .btn-secondary { border: 1px solid rgba(255,255,255,0.5); color: white; } .btn-secondary:hover { background: rgba(255,255,255,0.1); } section { padding: 55px 20px; } .card { background: white; border-radius: 16px; padding: 30px; box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08); margin-bottom: 24px; } h2 { color: #0f172a; margin-bottom: 18px; font-size: 1.9rem; } .subtitle { color: #475569; margin-bottom: 16px; font-size: 1.02rem; } .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 20px; } .service-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; } .service-box h3 { margin-bottom: 10px; color: #1e3a8a; font-size: 1.05rem; } .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 20px; } .contact-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; } .contact-box strong { display: block; margin-bottom: 8px; color: #0f172a; } .contact-box a { color: #1e3a8a; text-decoration: none; word-break: break-word; } .lang-toggle { position: fixed; top: 18px; right: 18px; z-index: 999; } .lang-toggle button { background: white; color: #0f172a; border: 1px solid #cbd5e1; padding: 10px 14px; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 5px 20px rgba(0,0,0,0.08); } footer { background: #0f172a; color: #cbd5e1; text-align: center; padding: 28px 20px; margin-top: 20px; } @media (max-width: 640px) { header h1 { font-size: 2rem; } h2 { font-size: 1.5rem; } } </style> </head> <body> <div class="lang-toggle"> <button onclick="toggleLanguage()">Español</button> </div> <header> <div class="container"> <h1 id="hero-title">Stonebridge Group LLC</h1> <p id="hero-text"> Administrative management and general business consulting services for small businesses and entrepreneurs in Illinois. </p> <div class="top-buttons"> <a class="btn btn-primary" href="mailto:info@stonebridgegropllc.com" id="btn-contact">Contact Us</a> <a class="btn btn-secondary" href="tel:17792069971" id="btn-call">Call Now</a> </div> </div> </header> <section> <div class="container"> <div class="card"> <h2 id="about-title">About Us</h2> <p class="subtitle" id="about-text"> Stonebridge Group LLC is focused on providing reliable administrative management and general business consulting services. We support small businesses with organization, operational guidance, and practical business assistance designed to improve efficiency and day-to-day operations. </p> </div> <div class="card"> <h2 id="services-title">Our Services</h2> <p class="subtitle" id="services-text"> We provide professional support tailored to the needs of growing businesses. </p> <div class="services-grid"> <div class="service-box"> <h3 id="s1-title">Business Consulting</h3> <p id="s1-text">General business support and consulting for small business operations and growth.</p> </div> <div class="service-box"> <h3 id="s2-title">Administrative Support</h3> <p id="s2-text">Administrative assistance to help businesses stay organized and operate more efficiently.</p> </div> <div class="service-box"> <h3 id="s3-title">Operational Guidance</h3> <p id="s3-text">Support with business processes, structure, and day-to-day management improvement.</p> </div> <div class="service-box"> <h3 id="s4-title">Small Business Assistance</h3> <p id="s4-text">Practical support for entrepreneurs and small business owners seeking better organization and workflow.</p> </div> </div> </div> <div class="card"> <h2 id="contact-title">Contact Information</h2> <div class="contact-grid"> <div class="contact-box"> <strong id="phone-label">Phone</strong> <a href="tel:17792069971">(779) 206-9971</a> </div> <div class="contact-box"> <strong id="email-label">Email</strong> <a href="mailto:info@stonebridgegropllc.com">info@stonebridgegropllc.com</a> </div> <div class="contact-box"> <strong id="location-label">Location</strong> <span id="location-text">Illinois, United States</span> </div> <div class="contact-box"> <strong id="hours-label">Business Hours</strong> <span id="hours-text">Monday to Friday, 8:00 AM to 6:00 PM</span> </div> </div> </div> </div> </section> <footer> <p id="footer-text">© 2026 Stonebridge Group LLC. All rights reserved.</p> </footer> <script> let currentLanguage = "en"; function toggleLanguage() { if (currentLanguage === "en") { document.documentElement.lang = "es"; document.getElementById("hero-text").textContent = "Servicios de consultoría administrativa y gestión general para pequeñas empresas y emprendedores en Illinois."; document.getElementById("btn-contact").textContent = "Contáctanos"; document.getElementById("btn-call").textContent = "Llamar Ahora"; document.getElementById("about-title").textContent = "Sobre Nosotros"; document.getElementById("about-text").textContent = "Stonebridge Group LLC se enfoca en brindar servicios confiables de gestión administrativa y consultoría general de negocios. Apoyamos a pequeñas empresas con organización, orientación operativa y asistencia práctica para mejorar la eficiencia y las operaciones diarias."; document.getElementById("services-title").textContent = "Nuestros Servicios"; document.getElementById("services-text").textContent = "Brindamos apoyo profesional adaptado a las necesidades de empresas en crecimiento."; document.getElementById("s1-title").textContent = "Consultoría de Negocios"; document.getElementById("s1-text").textContent = "Apoyo general y consultoría para operaciones y crecimiento de pequeñas empresas."; document.getElementById("s2-title").textContent = "Apoyo Administrativo"; document.getElementById("s2-text").textContent = "Asistencia administrativa para ayudar a las empresas a mantenerse organizadas y operar con mayor eficiencia."; document.getElementById("s3-title").textContent = "Orientación Operativa"; document.getElementById("s3-text").textContent = "Apoyo con procesos empresariales, estructura y mejoras en la gestión diaria."; document.getElementById("s4-title").textContent = "Asistencia a Pequeñas Empresas"; document.getElementById("s4-text").textContent = "Apoyo práctico para emprendedores y dueños de pequeños negocios que buscan mejor organización y flujo de trabajo."; document.getElementById("contact-title").textContent = "Información de Contacto"; document.getElementById("phone-label").textContent = "Teléfono"; document.getElementById("email-label").textContent = "Correo"; document.getElementById("location-label").textContent = "Ubicación"; document.getElementById("location-text").textContent = "Illinois, Estados Unidos"; document.getElementById("hours-label").textContent = "Horario"; document.getElementById("hours-text").textContent = "Lunes a Viernes, 8:00 AM a 6:00 PM"; document.getElementById("footer-text").textContent = "© 2026 Stonebridge Group LLC. Todos los derechos reservados."; document.querySelector(".lang-toggle button").textContent = "English"; currentLanguage = "es"; } else { document.documentElement.lang = "en"; document.getElementById("hero-text").textContent = "Administrative management and general business consulting services for small businesses and entrepreneurs in Illinois."; document.getElementById("btn-contact").textContent = "Contact Us"; document.getElementById("btn-call").textContent = "Call Now"; document.getElementById("about-title").textContent = "About Us"; document.getElementById("about-text").textContent = "Stonebridge Group LLC is focused on providing reliable administrative management and general business consulting services. We support small businesses with organization, operational guidance, and practical business assistance designed to improve efficiency and day-to-day operations."; document.getElementById("services-title").textContent = "Our Services"; document.getElementById("services-text").textContent = "We provide professional support tailored to the needs of growing businesses."; document.getElementById("s1-title").textContent = "Business Consulting"; document.getElementById("s1-text").textContent = "General business support and consulting for small business operations and growth."; document.getElementById("s2-title").textContent = "Administrative Support"; document.getElementById("s2-text").textContent = "Administrative assistance to help businesses stay organized and operate more efficiently."; document.getElementById("s3-title").textContent = "Operational Guidance"; document.getElementById("s3-text").textContent = "Support with business processes, structure, and day-to-day management improvement."; document.getElementById("s4-title").textContent = "Small Business Assistance"; document.getElementById("s4-text").textContent = "Practical support for entrepreneurs and small business owners seeking better organization and workflow."; document.getElementById("contact-title").textContent = "Contact Information"; document.getElementById("phone-label").textContent = "Phone"; document.getElementById("email-label").textContent = "Email"; document.getElementById("location-label").textContent = "Location"; document.getElementById("location-text").textContent = "Illinois, United States"; document.getElementById("hours-label").textContent = "Business Hours"; document.getElementById("hours-text").textContent = "Monday to Friday, 8:00 AM to 6:00 PM"; document.getElementById("footer-text").textContent = "© 2026 Stonebridge Group LLC. All rights reserved."; document.querySelector(".lang-toggle button").textContent = "Español"; currentLanguage = "en"; } } </script> </body> </html>.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stonebridge Group LLC</title>
+  <meta
+    name="description"
+    content="Stonebridge Group LLC provides administrative management and general business consulting services for small businesses in Illinois."
+  />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #1f2937;
+      background: #f8fafc;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      color: white;
+      padding: 70px 20px 50px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .lang-toggle {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: white;
+      padding: 10px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: 0.3s ease;
+    }
+
+    .lang-toggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .hero {
+      text-align: center;
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+
+    .btn-primary {
+      background: white;
+      color: #0f172a;
+    }
+
+    .btn-primary:hover {
+      background: #e5e7eb;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    section {
+      padding: 70px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .section-title p {
+      color: #4b5563;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      transition: 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #0f172a;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: #4b5563;
+      font-size: 0.98rem;
+    }
+
+    .about {
+      background: #ffffff;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      margin-bottom: 18px;
+      color: #0f172a;
+    }
+
+    .about-text p {
+      color: #4b5563;
+      margin-bottom: 14px;
+    }
+
+    .info-box {
+      background: linear-gradient(135deg, #eff6ff, #dbeafe);
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 8px 24px rgba(30, 58, 138, 0.08);
+    }
+
+    .info-box h3 {
+      margin-bottom: 14px;
+      color: #1e3a8a;
+    }
+
+    .info-box p {
+      margin-bottom: 10px;
+      color: #1f2937;
+    }
+
+    .contact {
+      background: #0f172a;
+      color: white;
+    }
+
+    .contact .section-title h2,
+    .contact .section-title p {
+      color: white;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 22px;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      padding: 24px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .contact-card p,
+    .contact-card a {
+      color: rgba(255,255,255,0.9);
+    }
+
+    footer {
+      background: #020617;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 22px 15px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 820px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1.02rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="topbar">
+        <button class="lang-toggle" onclick="toggleLanguage()">Español</button>
+      </div>
+
+      <div class="hero">
+        <h1 id="heroTitle">Stonebridge Group LLC</h1>
+        <p id="heroText">
+          Strategic business solutions built for growth and ready for opportunity.
+          Stonebridge Group LLC provides professional support, strategic guidance,
+          and modern business solutions designed to help clients move forward with confidence.
+        </p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary" id="servicesBtn">Our Services</a>
+          <a href="#contact" class="btn btn-secondary" id="contactBtn">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="servicesTitle">Our Services</h2>
+        <p id="servicesText">
+          We support small businesses with practical, dependable, and growth-focused solutions.
+        </p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3 id="card1Title">Administrative Support</h3>
+          <p id="card1Text">
+            Organized business support to help streamline operations and improve day-to-day efficiency.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 id="card2Title">Business Consulting</h3>
+          <p id="card2Text">
+            Strategic guidance for business planning, process improvement, and smarter decision-making.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 id="card3Title">Growth Solutions</h3>
+          <p id="card3Text">
+            Modern solutions tailored to support development, opportunity, and long-term business progress.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <h2 id="aboutTitle">About Us</h2>
+          <p id="aboutText1">
+            Stonebridge Group LLC is dedicated to helping businesses operate with more clarity, structure, and confidence.
+          </p>
+          <p id="aboutText2">
+            Our approach focuses on dependable support, practical strategy, and strong service for businesses seeking a trusted partner.
+          </p>
+        </div>
+
+        <div class="info-box">
+          <h3 id="hoursTitle">Business Hours</h3>
+          <p id="hours1"><strong>Monday to Friday:</strong> 8:00 AM - 6:00 PM</p>
+          <p id="hours2"><strong>Saturday and Sunday:</strong> 8:00 AM - 3:00 PM</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="contactTitle">Contact Us</h2>
+        <p id="contactText">
+          Reach out to learn more about our services and how we can support your business.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3 id="emailTitle">Email</h3>
+          <p><a href="mailto:info@stonebridgegroupllc.com">info@stonebridgegroupllc.com</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h3 id="phoneTitle">Phone</h3>
+          <p><a href="tel:+13315550000">(331) 555-0000</a></p>
+        </div>
+
+        <div class="contact-card">
+          <h3 id="locationTitle">Location</h3>
+          <p id="locationText">Illinois, United States</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p id="footerText">© 2026 Stonebridge Group LLC. All rights reserved.</p>
+  </footer>
+
+  <script>
+    let isEnglish = true;
+
+    function toggleLanguage() {
+      const button = document.querySelector('.lang-toggle');
+
+      if (isEnglish) {
+        document.documentElement.lang = 'es';
+        button.textContent = 'English';
+
+        document.getElementById('heroText').textContent =
+          'Soluciones estratégicas para negocios, creadas para crecer y listas para las oportunidades. Stonebridge Group LLC brinda apoyo profesional, orientación estratégica y soluciones modernas de negocio diseñadas para ayudar a sus clientes a avanzar con confianza.';
+
+        document.getElementById('servicesBtn').textContent = 'Nuestros Servicios';
+        document.getElementById('contactBtn').textContent = 'Contáctanos';
+
+        document.getElementById('servicesTitle').textContent = 'Nuestros Servicios';
+        document.getElementById('servicesText').textContent =
+          'Apoyamos a pequeños negocios con soluciones prácticas, confiables y enfocadas en el crecimiento.';
+
+        document.getElementById('card1Title').textContent = 'Apoyo Administrativo';
+        document.getElementById('card1Text').textContent =
+          'Apoyo empresarial organizado para agilizar operaciones y mejorar la eficiencia diaria.';
+
+        document.getElementById('card2Title').textContent = 'Consultoría de Negocios';
+        document.getElementById('card2Text').textContent =
+          'Orientación estratégica para planificación empresarial, mejora de procesos y mejores decisiones.';
+
+        document.getElementById('card3Title').textContent = 'Soluciones de Crecimiento';
+        document.getElementById('card3Text').textContent =
+          'Soluciones modernas adaptadas para apoyar el desarrollo, las oportunidades y el progreso del negocio a largo plazo.';
+
+        document.getElementById('aboutTitle').textContent = 'Sobre Nosotros';
+        document.getElementById('aboutText1').textContent =
+          'Stonebridge Group LLC está dedicada a ayudar a los negocios a operar con más claridad, estructura y confianza.';
+        document.getElementById('aboutText2').textContent =
+          'Nuestro enfoque se basa en apoyo confiable, estrategia práctica y un servicio sólido para empresas que buscan un socio de confianza.';
+
+        document.getElementById('hoursTitle').textContent = 'Horario';
+        document.getElementById('hours1').innerHTML = '<strong>Lunes a viernes:</strong> 8:00 AM - 6:00 PM';
+        document.getElementById('hours2').innerHTML = '<strong>Sábado y domingo:</strong> 8:00 AM - 3:00 PM';
+
+        document.getElementById('contactTitle').textContent = 'Contáctanos';
+        document.getElementById('contactText').textContent =
+          'Comunícate para conocer más sobre nuestros servicios y cómo podemos apoyar tu negocio.';
+
+        document.getElementById('emailTitle').textContent = 'Correo';
+        document.getElementById('phoneTitle').textContent = 'Teléfono';
+        document.getElementById('locationTitle').textContent = 'Ubicación';
+        document.getElementById('locationText').textContent = 'Illinois, Estados Unidos';
+
+        document.getElementById('footerText').textContent =
+          '© 2026 Stonebridge Group LLC. Todos los derechos reservados.';
+
+      } else {
+        document.documentElement.lang = 'en';
+        button.textContent = 'Español';
+
+        document.getElementById('heroText').textContent =
+          'Strategic business solutions built for growth and ready for opportunity. Stonebridge Group LLC provides professional support, strategic guidance, and modern business solutions designed to help clients move forward with confidence.';
+
+        document.getElementById('servicesBtn').textContent = 'Our Services';
+        document.getElementById('contactBtn').textContent = 'Contact Us';
+
+        document.getElementById('servicesTitle').textContent = 'Our Services';
+        document.getElementById('servicesText').textContent =
+          'We support small businesses with practical, dependable, and growth-focused solutions.';
+
+        document.getElementById('card1Title').textContent = 'Administrative Support';
+        document.getElementById('card1Text').textContent =
+          'Organized business support to help streamline operations and improve day-to-day efficiency.';
+
+        document.getElementById('card2Title').textContent = 'Business Consulting';
+        document.getElementById('card2Text').textContent =
+          'Strategic guidance for business planning, process improvement, and smarter decision-making.';
+
+        document.getElementById('card3Title').textContent = 'Growth Solutions';
+        document.getElementById('card3Text').textContent =
+          'Modern solutions tailored to support development, opportunity, and long-term business progress.';
+
+        document.getElementById('aboutTitle').textContent = 'About Us';
+        document.getElementById('aboutText1').textContent =
+          'Stonebridge Group LLC is dedicated to helping businesses operate with more clarity, structure, and confidence.';
+        document.getElementById('aboutText2').textContent =
+          'Our approach focuses on dependable support, practical strategy, and strong service for businesses seeking a trusted partner.';
+
+        document.getElementById('hoursTitle').textContent = 'Business Hours';
+        document.getElementById('hours1').innerHTML = '<strong>Monday to Friday:</strong> 8:00 AM - 6:00 PM';
+        document.getElementById('hours2').innerHTML = '<strong>Saturday and Sunday:</strong> 8:00 AM - 3:00 PM';
+
+        document.getElementById('contactTitle').textContent = 'Contact Us';
+        document.getElementById('contactText').textContent =
+          'Reach out to learn more about our services and how we can support your business.';
+
+        document.getElementById('emailTitle').textContent = 'Email';
+        document.getElementById('phoneTitle').textContent = 'Phone';
+        document.getElementById('locationTitle').textContent = 'Location';
+        document.getElementById('locationText').textContent = 'Illinois, United States';
+
+        document.getElementById('footerText').textContent =
+          '© 2026 Stonebridge Group LLC. All rights reserved.';
+      }
+
+      isEnglish = !isEnglish;
+    }
+  </script>
+</body>
+</html>
