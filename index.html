@@ -1,476 +1,379 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stonebridge Group LLC</title>
-  <meta
-    name="description"
-    content="Stonebridge Group LLC provides administrative management and general business consulting services for small businesses in Illinois."
-  />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07101d">
+  <meta name="description" content="Stonebridge Group LLC provides marketing strategy, brand positioning, sales growth and customer experience consulting for ambitious businesses.">
+  <title>Stonebridge Group LLC | Marketing Consulting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    :root {
+      --ink: #07101d;
+      --ink-2: #0c1a2d;
+      --paper: #f7f5ef;
+      --white: #fff;
+      --gold: #d8ab51;
+      --gold-2: #f3d88e;
+      --muted: #667080;
+      --line: rgba(7,16,29,.12);
+      --shadow: 0 24px 70px rgba(5,14,27,.12);
+      --radius: 26px;
     }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #1f2937;
-      background: #f8fafc;
+      color: var(--ink);
+      background: var(--paper);
+      font: 400 16px/1.7 "DM Sans", sans-serif;
+      overflow-x: hidden;
     }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      color: #a87922; font-size: .77rem; font-weight: 800;
+      letter-spacing: .15em; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 30px; height: 1px; background: currentColor; }
+    h1, h2, h3, .brand { font-family: "Manrope", sans-serif; }
+    h1 { font-size: clamp(3rem, 6.8vw, 6.35rem); line-height: .98; letter-spacing: -.065em; }
+    h2 { font-size: clamp(2.15rem, 4.3vw, 4.3rem); line-height: 1.06; letter-spacing: -.045em; }
+    h3 { line-height: 1.25; }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    .site-header {
+      position: fixed; z-index: 50; inset: 0 0 auto;
+      transition: background .3s, box-shadow .3s;
     }
-
-    .container {
-      width: 90%;
-      max-width: 1100px;
-      margin: auto;
+    .site-header.scrolled { background: rgba(7,16,29,.94); box-shadow: 0 10px 35px rgba(0,0,0,.16); backdrop-filter: blur(14px); }
+    .nav { min-height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 28px; color: #fff; }
+    .brand { display: flex; align-items: center; gap: 13px; font-weight: 800; letter-spacing: -.02em; }
+    .brand-mark {
+      display: grid; place-items: center; width: 42px; height: 42px;
+      border: 1px solid rgba(243,216,142,.6); color: var(--gold-2);
+      font-size: 1.2rem; transform: rotate(45deg);
     }
-
-    header {
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
-      color: white;
-      padding: 70px 20px 50px;
+    .brand-mark span { transform: rotate(-45deg); }
+    .brand-copy { display: flex; flex-direction: column; line-height: 1.08; }
+    .brand-copy small { margin-top: 4px; color: rgba(255,255,255,.58); font: 600 .6rem "DM Sans"; letter-spacing: .19em; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 32px; list-style: none; font-size: .93rem; font-weight: 600; }
+    .nav-links a { color: rgba(255,255,255,.78); transition: color .2s; }
+    .nav-links a:hover { color: var(--gold-2); }
+    .nav-actions { display: flex; align-items: center; gap: 12px; }
+    .lang {
+      border: 1px solid rgba(255,255,255,.25); background: transparent; color: white;
+      border-radius: 999px; padding: 10px 14px; cursor: pointer; font-weight: 700;
     }
-
-    .topbar {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 20px;
-    }
-
-    .lang-toggle {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      color: white;
-      padding: 10px 16px;
-      border-radius: 999px;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: 0.3s ease;
-    }
-
-    .lang-toggle:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-
-    .hero {
-      text-align: center;
-      max-width: 850px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 2.8rem;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      opacity: 0.95;
-      margin-bottom: 28px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+    .menu-btn { display: none; border: 0; background: transparent; color: white; font-size: 1.55rem; cursor: pointer; }
 
     .btn {
-      display: inline-block;
-      padding: 12px 22px;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: 0.3s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+      min-height: 52px; padding: 0 22px; border-radius: 999px;
+      font-weight: 800; transition: transform .2s, box-shadow .2s, background .2s;
     }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { color: var(--ink); background: linear-gradient(135deg,var(--gold-2),var(--gold)); box-shadow: 0 14px 30px rgba(216,171,81,.2); }
+    .btn-outline { color: #fff; border: 1px solid rgba(255,255,255,.28); }
 
-    .btn-primary {
-      background: white;
-      color: #0f172a;
+    .hero {
+      position: relative; min-height: 880px; display: grid; align-items: center;
+      color: #fff; background: var(--ink); overflow: hidden;
+      padding: 145px 0 90px;
     }
-
-    .btn-primary:hover {
-      background: #e5e7eb;
+    .hero::before {
+      content: ""; position: absolute; width: 820px; height: 820px; right: -260px; top: -170px;
+      border: 1px solid rgba(216,171,81,.28); border-radius: 50%;
+      box-shadow: 0 0 0 90px rgba(216,171,81,.035), 0 0 0 180px rgba(216,171,81,.025);
     }
-
-    .btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.4);
-      color: white;
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(105deg,transparent 0 62%,rgba(216,171,81,.08)), radial-gradient(circle at 78% 60%,rgba(30,74,120,.34),transparent 27%);
+      pointer-events: none;
     }
-
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
+    .hero-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.15fr .85fr; gap: 72px; align-items: center; }
+    .hero .eyebrow { color: var(--gold-2); margin-bottom: 25px; }
+    .hero h1 span { display: block; color: var(--gold-2); }
+    .hero-lead { max-width: 660px; margin: 28px 0 36px; color: rgba(255,255,255,.7); font-size: 1.13rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; }
+    .hero-panel {
+      position: relative; padding: 36px; border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.055); backdrop-filter: blur(20px);
+      border-radius: 32px; box-shadow: 0 32px 80px rgba(0,0,0,.25);
     }
+    .hero-panel::before { content: ""; position: absolute; inset: -1px auto auto 36px; width: 90px; height: 2px; background: var(--gold); }
+    .panel-label { color: var(--gold-2); font-size: .76rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+    .hero-panel h2 { margin: 17px 0 12px; font-size: 1.8rem; letter-spacing: -.035em; }
+    .hero-panel > p { color: rgba(255,255,255,.64); }
+    .panel-list { margin-top: 28px; display: grid; gap: 16px; }
+    .panel-item { display: flex; gap: 14px; align-items: center; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.11); }
+    .num { color: var(--gold-2); font: 800 .72rem "Manrope"; letter-spacing: .1em; }
+    .hero-foot { position: absolute; z-index: 3; left: 0; right: 0; bottom: 32px; }
+    .hero-foot .container { display: flex; justify-content: space-between; color: rgba(255,255,255,.42); font-size: .76rem; letter-spacing: .12em; text-transform: uppercase; }
 
-    section {
-      padding: 70px 20px;
+    .trust { background: #fff; border-bottom: 1px solid var(--line); }
+    .trust-row { min-height: 104px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 34px; }
+    .trust strong { font-family: "Manrope"; }
+    .trust-line { height: 1px; background: var(--line); }
+    .naics { padding: 10px 16px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: .82rem; }
+    .naics b { color: var(--ink); }
+
+    section { padding: 120px 0; }
+    .section-head { display: grid; grid-template-columns: .75fr 1.25fr; gap: 70px; margin-bottom: 60px; align-items: end; }
+    .section-head p { color: var(--muted); max-width: 620px; font-size: 1.05rem; }
+    .section-head h2 { margin-top: 18px; max-width: 720px; }
+    .services { background: var(--paper); }
+    .service-grid { display: grid; grid-template-columns: repeat(2,1fr); border: 1px solid var(--line); background: var(--line); gap: 1px; }
+    .service-card { position: relative; min-height: 330px; padding: 42px; background: var(--paper); overflow: hidden; transition: background .25s, color .25s; }
+    .service-card:hover { background: var(--ink); color: white; }
+    .service-card .index { color: #a87922; font: 800 .76rem "Manrope"; letter-spacing: .12em; }
+    .service-card h3 { margin: 68px 0 14px; font-size: 1.55rem; letter-spacing: -.03em; }
+    .service-card p { max-width: 450px; color: var(--muted); transition: color .25s; }
+    .service-card:hover p { color: rgba(255,255,255,.65); }
+    .arrow { position: absolute; right: 36px; top: 35px; font-size: 1.55rem; color: var(--gold); transition: transform .25s; }
+    .service-card:hover .arrow { transform: translate(5px,-5px); }
+
+    .approach { color: #fff; background: var(--ink); position: relative; overflow: hidden; }
+    .approach::after { content: "SB"; position: absolute; right: -28px; bottom: -115px; color: rgba(255,255,255,.025); font: 800 20rem "Manrope"; letter-spacing: -.12em; }
+    .approach .section-head p { color: rgba(255,255,255,.58); }
+    .approach .eyebrow { color: var(--gold-2); }
+    .steps { position: relative; z-index: 2; display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; }
+    .step { padding: 34px; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background: rgba(255,255,255,.035); }
+    .step-num { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; color: var(--gold-2); border: 1px solid rgba(243,216,142,.4); font-weight: 800; }
+    .step h3 { margin: 28px 0 11px; font-size: 1.3rem; }
+    .step p { color: rgba(255,255,255,.58); }
+
+    .about { background: #fff; }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
+    .about-art { position: relative; min-height: 550px; border-radius: var(--radius); overflow: hidden; background: var(--ink); box-shadow: var(--shadow); }
+    .about-art::before { content: ""; position: absolute; width: 450px; height: 450px; border: 1px solid rgba(216,171,81,.55); border-radius: 50%; top: 55px; left: 70px; box-shadow: 0 0 0 70px rgba(216,171,81,.05),0 0 0 140px rgba(216,171,81,.03); }
+    .about-art::after { content: "S"; position: absolute; inset: 0; display: grid; place-items: center; color: var(--gold-2); font: 800 12rem "Manrope"; letter-spacing: -.1em; }
+    .art-caption { position: absolute; z-index: 2; left: 32px; right: 32px; bottom: 30px; padding: 18px 22px; border: 1px solid rgba(255,255,255,.14); border-radius: 15px; color: rgba(255,255,255,.68); background: rgba(7,16,29,.76); backdrop-filter: blur(10px); font-size: .85rem; }
+    .about-copy h2 { margin: 18px 0 25px; }
+    .about-copy > p { color: var(--muted); margin-bottom: 18px; }
+    .value-list { margin-top: 30px; display: grid; gap: 16px; }
+    .value { display: flex; align-items: center; gap: 15px; font-weight: 700; }
+    .check { display: grid; place-items: center; flex: 0 0 30px; height: 30px; border-radius: 50%; background: #f5ead0; color: #946a1e; }
+
+    .contact { padding: 0 0 70px; background: #fff; }
+    .contact-shell { position: relative; overflow: hidden; padding: 76px; color: #fff; border-radius: 32px; background: var(--ink-2); }
+    .contact-shell::after { content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; right: -160px; top: -170px; border: 1px solid rgba(216,171,81,.3); box-shadow: 0 0 0 70px rgba(216,171,81,.035); }
+    .contact-grid { position: relative; z-index: 2; display: grid; grid-template-columns: 1.2fr .8fr; gap: 60px; align-items: end; }
+    .contact h2 { margin: 18px 0; max-width: 720px; }
+    .contact-copy p { max-width: 610px; color: rgba(255,255,255,.62); }
+    .contact-links { display: grid; gap: 12px; }
+    .contact-link { padding: 18px 20px; border: 1px solid rgba(255,255,255,.13); border-radius: 14px; background: rgba(255,255,255,.04); transition: border-color .2s, background .2s; }
+    .contact-link:hover { border-color: var(--gold); background: rgba(216,171,81,.08); }
+    .contact-link small { display: block; color: rgba(255,255,255,.45); font-size: .7rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+    .contact-link strong { display: block; margin-top: 4px; color: var(--gold-2); font-size: 1.02rem; word-break: break-word; }
+
+    footer { padding: 28px 0; color: var(--muted); background: #fff; border-top: 1px solid var(--line); font-size: .85rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 940px) {
+      .nav-links { position: fixed; inset: 84px 0 0; display: none; align-content: center; justify-items: center; gap: 28px; background: rgba(7,16,29,.98); font-size: 1.3rem; }
+      .nav-links.open { display: grid; }
+      .nav-actions .btn { display: none; }
+      .menu-btn { display: block; }
+      .hero { min-height: auto; padding-bottom: 120px; }
+      .hero-grid, .section-head, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .hero-grid { gap: 50px; }
+      .hero-panel { max-width: 580px; }
+      .section-head { gap: 24px; }
+      .steps { grid-template-columns: 1fr; }
+      .about-grid { gap: 50px; }
+      .contact-shell { padding: 55px 40px; }
     }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 45px;
+    @media (max-width: 680px) {
+      .container { width: min(100% - 28px,1180px); }
+      .nav { min-height: 74px; }
+      .brand-copy { font-size: .88rem; }
+      .brand-mark { width: 36px; height: 36px; }
+      .hero { padding-top: 120px; }
+      h1 { font-size: clamp(2.75rem,15vw,4.3rem); }
+      section { padding: 82px 0; }
+      .hero-panel { padding: 28px 24px; }
+      .hero-foot { display: none; }
+      .trust-row { grid-template-columns: 1fr; gap: 12px; padding: 24px 0; }
+      .trust-line { display: none; }
+      .naics { width: max-content; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card { min-height: 290px; padding: 30px; }
+      .service-card h3 { margin-top: 52px; }
+      .about-art { min-height: 430px; }
+      .about-art::after { font-size: 9rem; }
+      .contact-shell { padding: 46px 25px; border-radius: 22px; }
+      .footer-row { flex-direction: column; }
     }
-
-    .section-title h2 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #0f172a;
-    }
-
-    .section-title p {
-      color: #4b5563;
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: white;
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      transition: 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-      color: #0f172a;
-      font-size: 1.2rem;
-    }
-
-    .card p {
-      color: #4b5563;
-      font-size: 0.98rem;
-    }
-
-    .about {
-      background: #ffffff;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 35px;
-      align-items: center;
-    }
-
-    .about-text h2 {
-      font-size: 2rem;
-      margin-bottom: 18px;
-      color: #0f172a;
-    }
-
-    .about-text p {
-      color: #4b5563;
-      margin-bottom: 14px;
-    }
-
-    .info-box {
-      background: linear-gradient(135deg, #eff6ff, #dbeafe);
-      padding: 28px;
-      border-radius: 18px;
-      box-shadow: 0 8px 24px rgba(30, 58, 138, 0.08);
-    }
-
-    .info-box h3 {
-      margin-bottom: 14px;
-      color: #1e3a8a;
-    }
-
-    .info-box p {
-      margin-bottom: 10px;
-      color: #1f2937;
-    }
-
-    .contact {
-      background: #0f172a;
-      color: white;
-    }
-
-    .contact .section-title h2,
-    .contact .section-title p {
-      color: white;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 22px;
-    }
-
-    .contact-card {
-      background: rgba(255,255,255,0.06);
-      padding: 24px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .contact-card h3 {
-      margin-bottom: 10px;
-      font-size: 1.1rem;
-    }
-
-    .contact-card p,
-    .contact-card a {
-      color: rgba(255,255,255,0.9);
-    }
-
-    footer {
-      background: #020617;
-      color: rgba(255,255,255,0.7);
-      text-align: center;
-      padding: 22px 15px;
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 820px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .hero p {
-        font-size: 1.02rem;
-      }
-    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none!important; } .reveal { opacity: 1; transform: none; } }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <div class="topbar">
-        <button class="lang-toggle" onclick="toggleLanguage()">Español</button>
+  <header class="site-header" id="siteHeader">
+    <nav class="container nav" aria-label="Main navigation">
+      <a class="brand" href="#top" aria-label="Stonebridge Group home">
+        <span class="brand-mark" aria-hidden="true"><span>S</span></span>
+        <span class="brand-copy">Stonebridge Group <small>Marketing Consulting</small></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services" data-en="Services" data-es="Servicios">Services</a></li>
+        <li><a href="#approach" data-en="Our approach" data-es="Nuestro enfoque">Our approach</a></li>
+        <li><a href="#about" data-en="About" data-es="Nosotros">About</a></li>
+        <li><a href="#contact" data-en="Contact" data-es="Contacto">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="lang" id="langBtn" type="button" aria-label="Cambiar a español">ES</button>
+        <a class="btn btn-gold" href="tel:+17792069971" data-en="Let's talk" data-es="Hablemos">Let's talk</a>
+        <button class="menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
       </div>
-
-      <div class="hero">
-        <h1 id="heroTitle">Stonebridge Group LLC</h1>
-        <p id="heroText">
-          Strategic business solutions built for growth and ready for opportunity.
-          Stonebridge Group LLC provides professional support, strategic guidance,
-          and modern business solutions designed to help clients move forward with confidence.
-        </p>
-        <div class="hero-buttons">
-          <a href="#services" class="btn btn-primary" id="servicesBtn">Our Services</a>
-          <a href="#contact" class="btn btn-secondary" id="contactBtn">Contact Us</a>
-        </div>
-      </div>
-    </div>
+    </nav>
   </header>
 
-  <section id="services">
-    <div class="container">
-      <div class="section-title">
-        <h2 id="servicesTitle">Our Services</h2>
-        <p id="servicesText">
-          We support small businesses with practical, dependable, and growth-focused solutions.
-        </p>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow" data-en="Strategy that moves business forward" data-es="Estrategia que impulsa su negocio">Strategy that moves business forward</span>
+          <h1 data-en="Clarity to lead. &lt;span&gt;Strategy to grow.&lt;/span&gt;" data-es="Claridad para liderar. &lt;span&gt;Estrategia para crecer.&lt;/span&gt;">Clarity to lead. <span>Strategy to grow.</span></h1>
+          <p class="hero-lead" data-en="We help ambitious businesses sharpen their positioning, connect with the right customers and turn marketing decisions into measurable direction." data-es="Ayudamos a negocios con visión a fortalecer su posicionamiento, conectar con los clientes correctos y convertir sus decisiones de marketing en una dirección clara y medible.">We help ambitious businesses sharpen their positioning, connect with the right customers and turn marketing decisions into measurable direction.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="tel:+17792069971"><span data-en="Schedule a conversation" data-es="Agendar una conversación">Schedule a conversation</span> <span aria-hidden="true">↗</span></a>
+            <a class="btn btn-outline" href="#services" data-en="Explore our services" data-es="Conozca nuestros servicios">Explore our services</a>
+          </div>
+        </div>
+        <aside class="hero-panel" aria-label="Consulting focus">
+          <span class="panel-label" data-en="Our focus" data-es="Nuestro enfoque">Our focus</span>
+          <h2 data-en="Marketing built around your next move." data-es="Marketing pensado para su próximo paso.">Marketing built around your next move.</h2>
+          <p data-en="Focused advice for companies ready to make smarter, more confident growth decisions." data-es="Asesoría enfocada para empresas listas para tomar decisiones de crecimiento más inteligentes y seguras.">Focused advice for companies ready to make smarter, more confident growth decisions.</p>
+          <div class="panel-list">
+            <div class="panel-item"><span class="num">01</span><span data-en="Position your value" data-es="Posicione su valor">Position your value</span></div>
+            <div class="panel-item"><span class="num">02</span><span data-en="Reach the right market" data-es="Llegue al mercado correcto">Reach the right market</span></div>
+            <div class="panel-item"><span class="num">03</span><span data-en="Build a practical growth plan" data-es="Construya un plan de crecimiento práctico">Build a practical growth plan</span></div>
+          </div>
+        </aside>
       </div>
+      <div class="hero-foot"><div class="container"><span>Stonebridge Group LLC</span><span>Illinois · United States</span></div></div>
+    </section>
 
-      <div class="cards">
-        <div class="card">
-          <h3 id="card1Title">Administrative Support</h3>
-          <p id="card1Text">
-            Organized business support to help streamline operations and improve day-to-day efficiency.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3 id="card2Title">Business Consulting</h3>
-          <p id="card2Text">
-            Strategic guidance for business planning, process improvement, and smarter decision-making.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3 id="card3Title">Growth Solutions</h3>
-          <p id="card3Text">
-            Modern solutions tailored to support development, opportunity, and long-term business progress.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <h2 id="aboutTitle">About Us</h2>
-          <p id="aboutText1">
-            Stonebridge Group LLC is dedicated to helping businesses operate with more clarity, structure, and confidence.
-          </p>
-          <p id="aboutText2">
-            Our approach focuses on dependable support, practical strategy, and strong service for businesses seeking a trusted partner.
-          </p>
-        </div>
-
-        <div class="info-box">
-          <h3 id="hoursTitle">Business Hours</h3>
-          <p id="hours1"><strong>Monday to Friday:</strong> 8:00 AM - 6:00 PM</p>
-          <p id="hours2"><strong>Saturday and Sunday:</strong> 8:00 AM - 3:00 PM</p>
-        </div>
+    <div class="trust">
+      <div class="container trust-row">
+        <strong data-en="Professional marketing guidance" data-es="Asesoría profesional de marketing">Professional marketing guidance</strong>
+        <span class="trust-line"></span>
+        <span class="naics"><b data-en="Marketing consulting" data-es="Consultoría de marketing">Marketing consulting</b> · <span data-en="Strategy focused on growth" data-es="Estrategia enfocada en crecimiento">Strategy focused on growth</span></span>
       </div>
     </div>
-  </section>
 
-  <section class="contact" id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h2 id="contactTitle">Contact Us</h2>
-        <p id="contactText">
-          Reach out to learn more about our services and how we can support your business.
-        </p>
-      </div>
-
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3 id="emailTitle">Email</h3>
-          <p><a href="mailto:info@stonebridgegroupllc.com">info@stonebridgegroupllc.com</a></p>
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow" data-en="What we do" data-es="Lo que hacemos">What we do</span><h2 data-en="Smart strategy. Practical action." data-es="Estrategia inteligente. Acción práctica.">Smart strategy. Practical action.</h2></div>
+          <p data-en="We bring structure to the marketing questions that shape your business: who you serve, why customers should choose you, how to reach them and where to focus next." data-es="Damos estructura a las preguntas de marketing que definen su negocio: a quién sirve, por qué deben elegirlo, cómo llegar a sus clientes y dónde enfocarse después.">We bring structure to the marketing questions that shape your business: who you serve, why customers should choose you, how to reach them and where to focus next.</p>
         </div>
-
-        <div class="contact-card">
-          <h3 id="phoneTitle">Phone</h3>
-          <p><a href="tel:+13315550000">(331) 555-0000</a></p>
-        </div>
-
-        <div class="contact-card">
-          <h3 id="locationTitle">Location</h3>
-          <p id="locationText">Illinois, United States</p>
+        <div class="service-grid reveal">
+          <article class="service-card"><span class="index">01 / STRATEGY</span><span class="arrow">↗</span><h3 data-en="Marketing Strategy" data-es="Estrategia de Marketing">Marketing Strategy</h3><p data-en="Clear priorities, practical plans and informed recommendations aligned with your business goals." data-es="Prioridades claras, planes prácticos y recomendaciones informadas alineadas con los objetivos de su negocio.">Clear priorities, practical plans and informed recommendations aligned with your business goals.</p></article>
+          <article class="service-card"><span class="index">02 / POSITIONING</span><span class="arrow">↗</span><h3 data-en="Brand & Market Positioning" data-es="Marca y Posicionamiento">Brand & Market Positioning</h3><p data-en="Define your value, strengthen your message and stand out with purpose in the market you serve." data-es="Defina su valor, fortalezca su mensaje y destaque con propósito en el mercado al que sirve.">Define your value, strengthen your message and stand out with purpose in the market you serve.</p></article>
+          <article class="service-card"><span class="index">03 / GROWTH</span><span class="arrow">↗</span><h3 data-en="Sales Growth Consulting" data-es="Consultoría para Crecimiento en Ventas">Sales Growth Consulting</h3><p data-en="Identify opportunities, improve the customer journey and support better sales management decisions." data-es="Identifique oportunidades, mejore la experiencia del cliente y tome mejores decisiones para la gestión de ventas.">Identify opportunities, improve the customer journey and support better sales management decisions.</p></article>
+          <article class="service-card"><span class="index">04 / EXPERIENCE</span><span class="arrow">↗</span><h3 data-en="Customer Experience" data-es="Experiencia del Cliente">Customer Experience</h3><p data-en="Create more consistent customer touchpoints that build trust, loyalty and long-term value." data-es="Cree puntos de contacto más consistentes que generen confianza, lealtad y valor a largo plazo.">Create more consistent customer touchpoints that build trust, loyalty and long-term value.</p></article>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <p id="footerText">© 2026 Stonebridge Group LLC. All rights reserved.</p>
-  </footer>
+    <section class="approach" id="approach">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow" data-en="How we work" data-es="Cómo trabajamos">How we work</span><h2 data-en="A clear path from questions to action." data-es="Un camino claro de las preguntas a la acción.">A clear path from questions to action.</h2></div>
+          <p data-en="No generic playbooks. We listen first, focus on what matters and shape recommendations around the realities of your business." data-es="Sin fórmulas genéricas. Primero escuchamos, nos enfocamos en lo importante y adaptamos las recomendaciones a la realidad de su negocio.">No generic playbooks. We listen first, focus on what matters and shape recommendations around the realities of your business.</p>
+        </div>
+        <div class="steps reveal">
+          <article class="step"><span class="step-num">1</span><h3 data-en="Discover" data-es="Descubrir">Discover</h3><p data-en="Understand your business, audience, goals and current challenges." data-es="Comprender su negocio, audiencia, objetivos y desafíos actuales.">Understand your business, audience, goals and current challenges.</p></article>
+          <article class="step"><span class="step-num">2</span><h3 data-en="Define" data-es="Definir">Define</h3><p data-en="Turn insights into focused priorities and a practical strategic direction." data-es="Convertir los hallazgos en prioridades claras y una dirección estratégica práctica.">Turn insights into focused priorities and a practical strategic direction.</p></article>
+          <article class="step"><span class="step-num">3</span><h3 data-en="Advance" data-es="Avanzar">Advance</h3><p data-en="Move forward with clear recommendations and confident next steps." data-es="Avanzar con recomendaciones claras y próximos pasos seguros.">Move forward with clear recommendations and confident next steps.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container about-grid">
+        <div class="about-art reveal" role="img" aria-label="Stonebridge Group brand symbol"><div class="art-caption" data-en="Built for clarity · Guided by strategy · Focused on growth" data-es="Creado para la claridad · Guiado por estrategia · Enfocado en crecer">Built for clarity · Guided by strategy · Focused on growth</div></div>
+        <div class="about-copy reveal">
+          <span class="eyebrow" data-en="About Stonebridge" data-es="Sobre Stonebridge">About Stonebridge</span>
+          <h2 data-en="A strategic partner for your next stage." data-es="Un aliado estratégico para su próxima etapa.">A strategic partner for your next stage.</h2>
+          <p data-en="Stonebridge Group LLC is an Illinois-based marketing consulting company helping businesses bring clarity and structure to the decisions that influence growth." data-es="Stonebridge Group LLC es una empresa de consultoría de marketing con sede en Illinois que ayuda a los negocios a aportar claridad y estructura a las decisiones que influyen en su crecimiento.">Stonebridge Group LLC is an Illinois-based marketing consulting company helping businesses bring clarity and structure to the decisions that influence growth.</p>
+          <p data-en="Our work is grounded in practical thinking, attentive service and recommendations designed for real-world execution." data-es="Nuestro trabajo se basa en pensamiento práctico, atención dedicada y recomendaciones diseñadas para aplicarse en el mundo real.">Our work is grounded in practical thinking, attentive service and recommendations designed for real-world execution.</p>
+          <div class="value-list">
+            <div class="value"><span class="check">✓</span><span data-en="Clear, direct communication" data-es="Comunicación clara y directa">Clear, direct communication</span></div>
+            <div class="value"><span class="check">✓</span><span data-en="Solutions shaped around your goals" data-es="Soluciones adaptadas a sus objetivos">Solutions shaped around your goals</span></div>
+            <div class="value"><span class="check">✓</span><span data-en="Professional and dependable support" data-es="Apoyo profesional y confiable">Professional and dependable support</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-shell reveal">
+          <div class="contact-grid">
+            <div class="contact-copy">
+              <span class="eyebrow" data-en="Start a conversation" data-es="Inicie una conversación">Start a conversation</span>
+              <h2 data-en="Ready to bring clarity to your next move?" data-es="¿Listo para darle claridad a su próximo paso?">Ready to bring clarity to your next move?</h2>
+              <p data-en="Tell us where your business is today and where you want it to go. Let's explore the strategy that can help move it forward." data-es="Cuéntenos dónde se encuentra hoy su negocio y hacia dónde quiere llevarlo. Exploremos la estrategia que puede ayudarle a avanzar.">Tell us where your business is today and where you want it to go. Let's explore the strategy that can help move it forward.</p>
+            </div>
+            <div class="contact-links">
+              <a class="contact-link" href="tel:+17792069971"><small data-en="Call us" data-es="Llámenos">Call us</small><strong>(779) 206-9971</strong></a>
+              <a class="contact-link" href="mailto:info@stonebridgegropllc.com"><small data-en="Email us" data-es="Escríbanos">Email us</small><strong>info@stonebridgegropllc.com</strong></a>
+              <div class="contact-link"><small data-en="Service area" data-es="Área de servicio">Service area</small><strong data-en="Illinois & clients nationwide" data-es="Illinois y clientes en todo EE. UU.">Illinois & clients nationwide</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer-row"><span>© <span id="year"></span> Stonebridge Group LLC. <span data-en="All rights reserved." data-es="Todos los derechos reservados.">All rights reserved.</span></span><span>NAICS 541613 · Marketing Consulting Services</span></div></footer>
 
   <script>
-    let isEnglish = true;
+    const header = document.getElementById('siteHeader');
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    const langBtn = document.getElementById('langBtn');
+    let language = localStorage.getItem('stonebridge-language') || 'en';
 
-    function toggleLanguage() {
-      const button = document.querySelector('.lang-toggle');
+    const setLanguage = (lang) => {
+      language = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-en][data-es]').forEach((el) => {
+        const value = el.dataset[lang];
+        if (value.includes('<span>')) el.innerHTML = value;
+        else el.textContent = value;
+      });
+      langBtn.textContent = lang === 'en' ? 'ES' : 'EN';
+      langBtn.setAttribute('aria-label', lang === 'en' ? 'Cambiar a español' : 'Switch to English');
+      localStorage.setItem('stonebridge-language', lang);
+    };
 
-      if (isEnglish) {
-        document.documentElement.lang = 'es';
-        button.textContent = 'English';
-
-        document.getElementById('heroText').textContent =
-          'Soluciones estratégicas para negocios, creadas para crecer y listas para las oportunidades. Stonebridge Group LLC brinda apoyo profesional, orientación estratégica y soluciones modernas de negocio diseñadas para ayudar a sus clientes a avanzar con confianza.';
-
-        document.getElementById('servicesBtn').textContent = 'Nuestros Servicios';
-        document.getElementById('contactBtn').textContent = 'Contáctanos';
-
-        document.getElementById('servicesTitle').textContent = 'Nuestros Servicios';
-        document.getElementById('servicesText').textContent =
-          'Apoyamos a pequeños negocios con soluciones prácticas, confiables y enfocadas en el crecimiento.';
-
-        document.getElementById('card1Title').textContent = 'Apoyo Administrativo';
-        document.getElementById('card1Text').textContent =
-          'Apoyo empresarial organizado para agilizar operaciones y mejorar la eficiencia diaria.';
-
-        document.getElementById('card2Title').textContent = 'Consultoría de Negocios';
-        document.getElementById('card2Text').textContent =
-          'Orientación estratégica para planificación empresarial, mejora de procesos y mejores decisiones.';
-
-        document.getElementById('card3Title').textContent = 'Soluciones de Crecimiento';
-        document.getElementById('card3Text').textContent =
-          'Soluciones modernas adaptadas para apoyar el desarrollo, las oportunidades y el progreso del negocio a largo plazo.';
-
-        document.getElementById('aboutTitle').textContent = 'Sobre Nosotros';
-        document.getElementById('aboutText1').textContent =
-          'Stonebridge Group LLC está dedicada a ayudar a los negocios a operar con más claridad, estructura y confianza.';
-        document.getElementById('aboutText2').textContent =
-          'Nuestro enfoque se basa en apoyo confiable, estrategia práctica y un servicio sólido para empresas que buscan un socio de confianza.';
-
-        document.getElementById('hoursTitle').textContent = 'Horario';
-        document.getElementById('hours1').innerHTML = '<strong>Lunes a viernes:</strong> 8:00 AM - 6:00 PM';
-        document.getElementById('hours2').innerHTML = '<strong>Sábado y domingo:</strong> 8:00 AM - 3:00 PM';
-
-        document.getElementById('contactTitle').textContent = 'Contáctanos';
-        document.getElementById('contactText').textContent =
-          'Comunícate para conocer más sobre nuestros servicios y cómo podemos apoyar tu negocio.';
-
-        document.getElementById('emailTitle').textContent = 'Correo';
-        document.getElementById('phoneTitle').textContent = 'Teléfono';
-        document.getElementById('locationTitle').textContent = 'Ubicación';
-        document.getElementById('locationText').textContent = 'Illinois, Estados Unidos';
-
-        document.getElementById('footerText').textContent =
-          '© 2026 Stonebridge Group LLC. Todos los derechos reservados.';
-
-      } else {
-        document.documentElement.lang = 'en';
-        button.textContent = 'Español';
-
-        document.getElementById('heroText').textContent =
-          'Strategic business solutions built for growth and ready for opportunity. Stonebridge Group LLC provides professional support, strategic guidance, and modern business solutions designed to help clients move forward with confidence.';
-
-        document.getElementById('servicesBtn').textContent = 'Our Services';
-        document.getElementById('contactBtn').textContent = 'Contact Us';
-
-        document.getElementById('servicesTitle').textContent = 'Our Services';
-        document.getElementById('servicesText').textContent =
-          'We support small businesses with practical, dependable, and growth-focused solutions.';
-
-        document.getElementById('card1Title').textContent = 'Administrative Support';
-        document.getElementById('card1Text').textContent =
-          'Organized business support to help streamline operations and improve day-to-day efficiency.';
-
-        document.getElementById('card2Title').textContent = 'Business Consulting';
-        document.getElementById('card2Text').textContent =
-          'Strategic guidance for business planning, process improvement, and smarter decision-making.';
-
-        document.getElementById('card3Title').textContent = 'Growth Solutions';
-        document.getElementById('card3Text').textContent =
-          'Modern solutions tailored to support development, opportunity, and long-term business progress.';
-
-        document.getElementById('aboutTitle').textContent = 'About Us';
-        document.getElementById('aboutText1').textContent =
-          'Stonebridge Group LLC is dedicated to helping businesses operate with more clarity, structure, and confidence.';
-        document.getElementById('aboutText2').textContent =
-          'Our approach focuses on dependable support, practical strategy, and strong service for businesses seeking a trusted partner.';
-
-        document.getElementById('hoursTitle').textContent = 'Business Hours';
-        document.getElementById('hours1').innerHTML = '<strong>Monday to Friday:</strong> 8:00 AM - 6:00 PM';
-        document.getElementById('hours2').innerHTML = '<strong>Saturday and Sunday:</strong> 8:00 AM - 3:00 PM';
-
-        document.getElementById('contactTitle').textContent = 'Contact Us';
-        document.getElementById('contactText').textContent =
-          'Reach out to learn more about our services and how we can support your business.';
-
-        document.getElementById('emailTitle').textContent = 'Email';
-        document.getElementById('phoneTitle').textContent = 'Phone';
-        document.getElementById('locationTitle').textContent = 'Location';
-        document.getElementById('locationText').textContent = 'Illinois, United States';
-
-        document.getElementById('footerText').textContent =
-          '© 2026 Stonebridge Group LLC. All rights reserved.';
-      }
-
-      isEnglish = !isEnglish;
-    }
+    langBtn.addEventListener('click', () => setLanguage(language === 'en' ? 'es' : 'en'));
+    menuBtn.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      document.body.classList.toggle('menu-open', open);
+      menuBtn.textContent = open ? '×' : '☰';
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      navLinks.classList.remove('open'); document.body.classList.remove('menu-open');
+      menuBtn.textContent = '☰'; menuBtn.setAttribute('aria-expanded','false');
+    }));
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 18));
+    const observer = new IntersectionObserver((entries) => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.getElementById('year').textContent = new Date().getFullYear();
+    setLanguage(language);
   </script>
 </body>
 </html>
